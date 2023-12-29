@@ -22,7 +22,7 @@ pod 'AvoidCrashes'
 
 ## Author
 
-zhangke, zhangke@cuour.org
+zhangke, 192938268@qq.com
 
 ## License
 

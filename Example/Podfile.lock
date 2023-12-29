@@ -1,0 +1,16 @@
+PODS:
+  - AvoidCrashes (0.1.0)
+
+DEPENDENCIES:
+  - AvoidCrashes (from `../`)
+
+EXTERNAL SOURCES:
+  AvoidCrashes:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AvoidCrashes: 360996f88da70222befa6383fe6b6231b64ab2ed
+
+PODFILE CHECKSUM: 4aa84b2a1e6c4fdde39d50108f92f97738f13fb5
+
+COCOAPODS: 1.14.3
