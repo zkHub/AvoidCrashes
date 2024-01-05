@@ -37,7 +37,7 @@
     }
 }
 
-//MARK: - setObject:atIndexedSubscript:
+//MARK: - -[__NSArrayM setObject:atIndexedSubscript:]: index 4 beyond bounds for empty array
 - (void)ac_setObject:(id)obj atIndexedSubscript:(NSUInteger)idx {
     @try {
         [self ac_setObject:obj atIndexedSubscript:idx];
@@ -48,7 +48,7 @@
     }
 }
 
-//MARK: - objectAtIndex:
+//MARK: - -[__NSArrayM objectAtIndex:]: index 3 beyond bounds for empty array
 - (id)ac_objectAtIndex:(NSUInteger)index {
     if (index < self.count) {
         return [self ac_objectAtIndex:index];
@@ -57,7 +57,7 @@
     return nil;
 }
 
-//MARK: - objectAtIndexedSubscript:
+//MARK: - -[__NSArrayM objectAtIndexedSubscript:]: index 3 beyond bounds for empty array
 - (id)ac_objectAtIndexedSubscript:(NSUInteger)idx {
     if (idx < self.count) {
         return [self ac_objectAtIndexedSubscript:idx];
@@ -68,6 +68,8 @@
 
 //MARK: - removeObjectAtIndex:
 - (void)ac_removeObjectAtIndex:(NSUInteger)index {
+    [self ac_removeObjectAtIndex:index];
+    return;
     @try {
         [self ac_removeObjectAtIndex:index];
     } @catch (NSException *exception) {

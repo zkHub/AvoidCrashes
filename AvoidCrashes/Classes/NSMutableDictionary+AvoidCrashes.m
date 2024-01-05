@@ -23,6 +23,7 @@
     });
 }
 
+//MARK: - -[__NSDictionaryM setObject:forKey:]: object cannot be nil
 - (void)ac_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
     @try {
         [self ac_setObject:anObject forKey:aKey];
@@ -33,6 +34,7 @@
     }
 }
 
+//MARK: - -[__NSDictionaryM setObject:forKeyedSubscript:]: key cannot be nil
 - (void)ac_setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key {
     @try {
         [self ac_setObject:obj forKeyedSubscript:key];
@@ -43,6 +45,7 @@
     }
 }
 
+//MARK: - -[__NSDictionaryM removeObjectForKey:]: key cannot be nil
 - (void)ac_removeObjectForKey:(id)aKey {
     @try {
         [self ac_removeObjectForKey:aKey];

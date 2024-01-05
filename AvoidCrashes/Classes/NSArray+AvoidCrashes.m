@@ -32,7 +32,7 @@
     });
 }
 
-// -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
+//MARK: - -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
 // @[]
 // +[NSArray arrayWithObjects:count:]
 // -[__NSPlaceholderArray initWithObjects:count:]
@@ -59,7 +59,7 @@
     }
 }
 
-//MARK: - objectAtIndex:
+//MARK: - -[__NSArray0 objectAtIndex:]: index - beyond bounds for empty array
 - (id)ac___NSArray0ObjectAtIndex:(NSUInteger)index {
     if (index < self.count) {
         return [self ac___NSArray0ObjectAtIndex:index];
@@ -68,6 +68,7 @@
     return nil;
 }
 
+//MARK: - __boundsFail: index - beyond bounds [0 .. 1]
 - (id)ac___NSArrayIObjectAtIndex:(NSUInteger)index {
     if (index < self.count) {
         return [self ac___NSArrayIObjectAtIndex:index];
@@ -76,6 +77,7 @@
     return nil;
 }
 
+//MARK: - -[__NSSingleObjectArrayI objectAtIndex:]: index 3 beyond bounds [0 .. 0]
 - (id)ac___NSSingleObjectArrayIObjectAtIndex:(NSUInteger)index {
     if (index < self.count) {
         return [self ac___NSSingleObjectArrayIObjectAtIndex:index];
@@ -85,7 +87,7 @@
 }
 
 
-//MARK: - objectAtIndexedSubscript:
+//MARK: - -[__NSArrayI objectAtIndexedSubscript:]: index 3 beyond bounds [0 .. 1]
 - (id)ac___NSArrayIObjectAtIndexedSubscript:(NSUInteger)idx {
     if (idx < self.count) {
         return [self ac___NSArrayIObjectAtIndexedSubscript:idx];
@@ -95,6 +97,7 @@
 }
 
 - (id)ac_objectAtIndexedSubscript:(NSUInteger)idx {
+    return [self ac_objectAtIndexedSubscript:idx];
     if (idx < self.count) {
         return [self ac_objectAtIndexedSubscript:idx];
     }

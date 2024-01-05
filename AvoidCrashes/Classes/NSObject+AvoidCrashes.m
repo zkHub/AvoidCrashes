@@ -72,25 +72,26 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     dispatch_once(&onceToken, ^{
         // hook 消息转发的最后一步
         // class mathod
-        swizzleClassMethod(self.class, @selector(methodSignatureForSelector:), @selector(ac_avoidCrashesMethodSignatureForSelector:));
-        swizzleClassMethod(self.class, @selector(forwardInvocation:), @selector(ac_avoidCrashesForwardInvocation:));
+        swizzleClassMethod(self.class, @selector(methodSignatureForSelector:), @selector(ac_methodSignatureForSelector:));
+        swizzleClassMethod(self.class, @selector(forwardInvocation:), @selector(ac_forwardInvocation:));
         // instance mathod
-        swizzleInstanceMethod(self.class, @selector(methodSignatureForSelector:), @selector(ac_avoidCrashesMethodSignatureForSelector:));
-        swizzleInstanceMethod(self.class, @selector(forwardInvocation:), @selector(ac_avoidCrashesForwardInvocation:));
+        swizzleInstanceMethod(self.class, @selector(methodSignatureForSelector:), @selector(ac_methodSignatureForSelector:));
+        swizzleInstanceMethod(self.class, @selector(forwardInvocation:), @selector(ac_forwardInvocation:));
     });
 }
 
-+ (NSMethodSignature *)ac_avoidCrashesMethodSignatureForSelector:(SEL)aSelector {
-    NSMethodSignature *ms = [self ac_avoidCrashesMethodSignatureForSelector:aSelector];
+// class method
++ (NSMethodSignature *)ac_methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *ms = [self ac_methodSignatureForSelector:aSelector];
     if (!ms) {
         ms = [NSMethodSignature signatureWithObjCTypes:"v@:"];
     }
     return ms;
 }
 
-+ (void)ac_avoidCrashesForwardInvocation:(NSInvocation *)anInvocation {
++ (void)ac_forwardInvocation:(NSInvocation *)anInvocation {
     @try {
-        [self ac_avoidCrashesForwardInvocation:anInvocation];
+        [self ac_forwardInvocation:anInvocation];
     } @catch (NSException *exception) {
         [AvoidCrashesLog logCrashInfoWithException:exception];
     } @finally {
@@ -98,17 +99,18 @@ void swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelect
     }
 }
 
-- (NSMethodSignature *)ac_avoidCrashesMethodSignatureForSelector:(SEL)aSelector {
-    NSMethodSignature *ms = [self ac_avoidCrashesMethodSignatureForSelector:aSelector];
+// instance method
+- (NSMethodSignature *)ac_methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *ms = [self ac_methodSignatureForSelector:aSelector];
     if (!ms) {
         ms = [NSMethodSignature signatureWithObjCTypes:"v@:"];
     }
     return ms;
 }
 
-- (void)ac_avoidCrashesForwardInvocation:(NSInvocation *)anInvocation {
+- (void)ac_forwardInvocation:(NSInvocation *)anInvocation {
     @try {
-        [self ac_avoidCrashesForwardInvocation:anInvocation];
+        [self ac_forwardInvocation:anInvocation];
     } @catch (NSException *exception) {
         [AvoidCrashesLog logCrashInfoWithException:exception];
     } @finally {

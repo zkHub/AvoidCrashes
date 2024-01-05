@@ -41,7 +41,16 @@
 - (void)testDictionary {
     NSString *k1 = nil;
     NSString *o1 = nil;
-    NSDictionary *dict = @{@"1": @"1", k1 : o1};
+    NSDictionary *dict = @{@"1": o1, k1 : o1};
+    NSMutableDictionary *mDict = [NSMutableDictionary new];
+    [mDict setObject:o1 forKey:@"1"];
+    [mDict setObject:o1 forKey:k1];
+    [mDict setObject:o1 forKey:@""];
+    mDict[@"1"] = o1;
+    mDict[k1] = o1;
+    [mDict removeObjectForKey:k1];
+    [mDict removeObjectForKey:@"1"];
+
 }
 
 - (void)testArray {

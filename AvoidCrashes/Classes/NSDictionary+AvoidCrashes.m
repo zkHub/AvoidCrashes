@@ -18,9 +18,7 @@
     });
 }
 
-//MARK: - Section
-
-// -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[1]
+//MARK: - -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[1]
 // @{}
 // +[NSDictionary dictionaryWithObjects:forKeys:count:]
 // -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]
