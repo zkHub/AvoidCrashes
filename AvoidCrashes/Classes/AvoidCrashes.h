@@ -6,10 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AvoidCrashesHandle.h"
+
+
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface AvoidCrashes : NSObject
+
++ (void)configAvoidCrashesHandler:(id<AvoidCrashesHandle>)handler;
 
 @end
 
