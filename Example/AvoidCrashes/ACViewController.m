@@ -24,36 +24,54 @@
 //    NSString *a = [NSNumber numberWithInt:1];
 //    NSInteger length = a.length;
     
+    [self testSet];
+    [self testDictionary];
+    [self testArray];
+}
+
+- (void)testSet {
+    NSString *a1 = nil;
+    NSSet *set = [NSSet setWithObject:nil];
+    NSMutableSet *mSet = [NSMutableSet setWithObject:nil];
+    [mSet addObject:nil];
+    [mSet removeObject:nil];
+    
+}
+
+- (void)testDictionary {
+    NSString *k1 = nil;
+    NSString *o1 = nil;
+    NSDictionary *dict = @{@"1": @"1", k1 : o1};
+}
+
+- (void)testArray {
     NSNumber *a1 = nil;
     NSArray *__NSArrayI = @[a1];
-    __NSArrayI = [NSArray arrayWithObjects:&__NSArrayI count:3];
     
-//    NSArray *__NSArray0 = @[];
-//    NSArray *__NSSingleObjectArrayI = @[@(1)];
-//    __NSArrayI = @[@(1), @(2)];
+    NSArray *__NSArray0 = @[];
+    NSArray *__NSSingleObjectArrayI = @[@(1)];
+    __NSArrayI = @[@(1), @(2)];
     NSMutableArray *__NSArrayM = [NSMutableArray array];
     
     [__NSArrayM addObject:a1];
     [__NSArrayM insertObject:@(1) atIndex:3];
     __NSArrayM[4] = @(2);
     
-//    [__NSArray0 objectAtIndex:3];
-//    [__NSSingleObjectArrayI objectAtIndex:3];
-//    [__NSArrayI objectAtIndex:3];
-//    [__NSArrayM objectAtIndex:3];
-//
-//    __NSArray0[3];
-//    __NSSingleObjectArrayI[3];
-//    __NSArrayI[3];
-//    __NSArrayM[3];
-//    
-//    [__NSArray0 objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
-//    [__NSSingleObjectArrayI objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
-//    [__NSArrayI objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
-//    [__NSArrayM objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
+    [__NSArray0 objectAtIndex:3];
+    [__NSSingleObjectArrayI objectAtIndex:3];
+    [__NSArrayI objectAtIndex:3];
+    [__NSArrayM objectAtIndex:3];
 
+    __NSArray0[3];
+    __NSSingleObjectArrayI[3];
+    __NSArrayI[3];
+    __NSArrayM[3];
+
+    [__NSArray0 objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
+    [__NSSingleObjectArrayI objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
+    [__NSArrayI objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
+    [__NSArrayM objectsAtIndexes:[NSIndexSet indexSetWithIndex:3]];
 }
-
 
 - (void)handleCrashInformation:(NSString *)info {
     NSLog(@"1");

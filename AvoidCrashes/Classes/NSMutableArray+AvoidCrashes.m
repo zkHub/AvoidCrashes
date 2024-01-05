@@ -7,7 +7,6 @@
 
 #import "NSMutableArray+AvoidCrashes.h"
 #import "NSObject+AvoidCrashes.h"
-#import "AvoidCrashesLog.h"
 
 @implementation NSMutableArray (AvoidCrashes)
 

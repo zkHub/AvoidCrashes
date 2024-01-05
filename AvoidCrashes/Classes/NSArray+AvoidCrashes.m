@@ -7,7 +7,6 @@
 
 #import "NSArray+AvoidCrashes.h"
 #import "NSObject+AvoidCrashes.h"
-#import "AvoidCrashesLog.h"
 
 @implementation NSArray (AvoidCrashes)
 
@@ -33,7 +32,10 @@
     });
 }
 
-
+// -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[0]
+// @[]
+// +[NSArray arrayWithObjects:count:]
+// -[__NSPlaceholderArray initWithObjects:count:]
 - (instancetype)ac_initWithObjects:(id  _Nonnull const[])objects count:(NSUInteger)cnt {
     id instance = nil;
     @try {
@@ -42,16 +44,16 @@
         [AvoidCrashesLog logCrashInfoWithException:exception];
         
         // 把为nil的数据去掉,然后初始化数组
-        NSInteger newObjsIndex = 0;
+        NSInteger newIndex = 0;
         id  _Nonnull __unsafe_unretained newObjects[cnt];
         
         for (int i = 0; i < cnt; i++) {
             if (objects[i] != nil) {
-                newObjects[newObjsIndex] = objects[i];
-                newObjsIndex++;
+                newObjects[newIndex] = objects[i];
+                newIndex++;
             }
         }
-        instance = [self ac_initWithObjects:newObjects count:newObjsIndex];
+        instance = [self ac_initWithObjects:newObjects count:newIndex];
     } @finally {
         return instance;
     }
