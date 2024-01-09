@@ -24,7 +24,6 @@
         swizzleInstanceMethod(__NSArrayI, @selector(objectAtIndex:), @selector(ac___NSArrayIObjectAtIndex:));
         swizzleInstanceMethod(__NSSingleObjectArrayI, @selector(objectAtIndex:), @selector(ac___NSSingleObjectArrayIObjectAtIndex:));
         
-        swizzleInstanceMethod(self.class, @selector(objectAtIndexedSubscript:), @selector(ac_objectAtIndexedSubscript:));
         swizzleInstanceMethod(__NSArrayI, @selector(objectAtIndexedSubscript:), @selector(ac___NSArrayIObjectAtIndexedSubscript:));
         
         swizzleInstanceMethod(self.class, @selector(objectsAtIndexes:), @selector(ac_objectsAtIndexes:));
@@ -60,6 +59,8 @@
 }
 
 //MARK: - -[__NSArray0 objectAtIndex:]: index - beyond bounds for empty array
+// [__NSArray0 objectAtIndex:3]
+// __NSArray0[3]
 - (id)ac___NSArray0ObjectAtIndex:(NSUInteger)index {
     if (index < self.count) {
         return [self ac___NSArray0ObjectAtIndex:index];
@@ -78,6 +79,8 @@
 }
 
 //MARK: - -[__NSSingleObjectArrayI objectAtIndex:]: index 3 beyond bounds [0 .. 0]
+// [__NSSingleObjectArrayI objectAtIndex:3] 
+// __NSSingleObjectArrayI[3]
 - (id)ac___NSSingleObjectArrayIObjectAtIndex:(NSUInteger)index {
     if (index < self.count) {
         return [self ac___NSSingleObjectArrayIObjectAtIndex:index];
@@ -96,14 +99,6 @@
     return nil;
 }
 
-- (id)ac_objectAtIndexedSubscript:(NSUInteger)idx {
-    return [self ac_objectAtIndexedSubscript:idx];
-    if (idx < self.count) {
-        return [self ac_objectAtIndexedSubscript:idx];
-    }
-    [AvoidCrashesLog logCrashInfoWithReason:[NSString stringWithFormat:@"NSArray objectAtIndexedSubscript:%lu, count:%lu", idx, self.count]];
-    return nil;
-}
 
 //MARK: - objectsAtIndexes
 - (NSArray *)ac_objectsAtIndexes:(NSIndexSet *)indexes {
